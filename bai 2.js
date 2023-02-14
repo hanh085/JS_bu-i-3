@@ -15,7 +15,7 @@ for (let i = 0; i < 100; i++) {
     temp = temp.toFixed();  // làm tròn thành số nguyên  
     arr.push(temp);
 }
-OutputArray(arr);    
+OutputArray(arr);
 
 // 1. Đếm xem có bao nhiêu số 0 trong mảng  
 var count = 0;
@@ -29,49 +29,49 @@ console.log(count);
 
 // 2. Đếm xem có bao nhiêu số nguyên tố trong mảng
 count = 0;
-console.log('Các số nguyên tố trong mảng: '); 
+console.log('Các số nguyên tố trong mảng: ');
 for (let i = 0; i < 100; i++) {
     if (isPrime(arr[i]) == true) {
         count++;
-        console.log(arr[i]); 
+        console.log(arr[i]);
     }
 }
-console.log(' => Mảng có %i số nguyên tố', count); 
+console.log(' => Mảng có %i số nguyên tố', count);
 
 // 3. Đếm xem có bao nhiêu số hoàn hảo trong mảng
 count = 0;
-console.log('Các số hoàn hảo trong mảng: '); 
+console.log('Các số hoàn hảo trong mảng: ');
 for (let i = 0; i < 100; i++) {
     if (isPerfectNumber(arr[i]) == true) {
         count++;
-        console.log(arr[i]); 
+        console.log(arr[i]);
     }
 }
-console.log(' => Mảng có %i số hoàn hảo', count); 
+console.log(' => Mảng có %i số hoàn hảo', count);
 
 
 // 4. Đếm xem có bao nhiêu số fibonacci trong mảng
 count = 0;
-console.log('Các số fibonacci trong mảng: '); 
+console.log('Các số fibonacci trong mảng: ');
 for (let i = 0; i < 100; i++) {
     if (isFibonacci(arr[i]) == true) {
         count++;
-        console.log(arr[i]); 
+        console.log(arr[i]);
     }
 }
-console.log(' => Mảng có %i số fibonacci', count); 
+console.log(' => Mảng có %i số fibonacci', count);
 
 
 // 5. Đếm xem có bao nhiêu số đối xứng trong mảng
 count = 0;
-console.log('Các số đối xứng trong mảng: '); 
+console.log('Các số đối xứng trong mảng: ');
 for (let i = 0; i < 100; i++) {
     if (KiemTraDoiXung(toString(arr[i])) == true) {
         count++;
-        console.log(arr[i]); 
+        console.log(arr[i]);
     }
 }
-console.log(' => Mảng có %i số đối xứng', count); 
+console.log(' => Mảng có %i số đối xứng', count);
 
 
 
@@ -80,30 +80,23 @@ function OutputArray(arr) {
     console.log(arr.join(', '));
 }
 
-function isPrime(value)
-{
-    if (value < 2)
-    {
-        return false; 
+function isPrime(value) {
+    if (value < 2) {
+        return false;
     }
-    else if(value ==2)
-    {
-        return true; 
+    else if (value == 2) {
+        return true;
     }
-    else if(value %2 ==0 )
-    {
-        return false; 
+    else if (value % 2 == 0) {
+        return false;
     }
-    else 
-    {
-        for(let i=3; i<value; i++)
-        {
-            if(value%i ==0)
-            {
-                return false; 
+    else {
+        for (let i = 3; i < value; i++) {
+            if (value % i == 0) {
+                return false;
             }
         }
-        return true; 
+        return true;
     }
 }
 
