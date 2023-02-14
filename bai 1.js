@@ -22,6 +22,11 @@ function InputArray(arr) {
     var temp;
     for (let i = 0; i < n; i++) {
         temp = prompt('Thêm phần tử: ');
+
+        while (temp === '' || temp === null) {
+            temp = prompt('Phần tử rỗng, Nhập lại: ');
+        }
+
         arr.push(temp);
     }
 }
