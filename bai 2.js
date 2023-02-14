@@ -8,70 +8,105 @@ Bài 2: Viết chương trình tạo 1 mảng gồm 100 phần tử là các s�
 */
 
 var arr = [];
-// 1. Đếm xem có bao nhiêu số 0 trong mảng
+// tạo mảng 100 phần tử 
 var temp;
 for (let i = 0; i < 100; i++) {
     temp = Math.random() * 101;
-    temp=temp.toFixed();  // làm tròn thành số nguyên 
+    temp = temp.toFixed();  // làm tròn thành số nguyên  
     arr.push(temp);
 }
-OutputArray(arr);
+OutputArray(arr);    
+
+// 1. Đếm xem có bao nhiêu số 0 trong mảng  
+var count = 0;
+for (let i = 0; i < 100; i++) {
+    if (arr[i] == 0) {
+        count++;
+    }
+}
+console.log('Đếm phần tử 0 trong mảng');
+console.log(count);
 
 // 2. Đếm xem có bao nhiêu số nguyên tố trong mảng
-var count =0; 
-for (let i=0;i<100;i++)
-{
-    if(arr[i] == 0)
-    {
-        count ++; 
+count = 0;
+console.log('Các số nguyên tố trong mảng: '); 
+for (let i = 0; i < 100; i++) {
+    if (isPrime(arr[i]) == true) {
+        count++;
+        console.log(arr[i]); 
     }
 }
-console.log('Đếm phần tử 0 trong mảng'); 
-console.log(count); 
+console.log(' => Mảng có %i số nguyên tố', count); 
 
 // 3. Đếm xem có bao nhiêu số hoàn hảo trong mảng
-count =0; 
-for (let i=0;i<100;i++)
-{
-    if(isPerfectNumber(arr[i]) == true)
-    {
-        count ++; 
+count = 0;
+console.log('Các số hoàn hảo trong mảng: '); 
+for (let i = 0; i < 100; i++) {
+    if (isPerfectNumber(arr[i]) == true) {
+        count++;
+        console.log(arr[i]); 
     }
 }
-console.log('Đếm phần tử là số hoàn hảo trong mảng'); 
-console.log(count); 
+console.log(' => Mảng có %i số hoàn hảo', count); 
+
 
 // 4. Đếm xem có bao nhiêu số fibonacci trong mảng
-count =0; 
-for (let i=0;i<100;i++)
-{
-    if(isFibonacci(arr[i]) == true)
-    {
-        count ++; 
+count = 0;
+console.log('Các số fibonacci trong mảng: '); 
+for (let i = 0; i < 100; i++) {
+    if (isFibonacci(arr[i]) == true) {
+        count++;
+        console.log(arr[i]); 
     }
 }
-console.log('Đếm phần tử là số fibonacci trong mảng'); 
-console.log(count); 
+console.log(' => Mảng có %i số fibonacci', count); 
 
 
 // 5. Đếm xem có bao nhiêu số đối xứng trong mảng
-count =0; 
-for (let i=0;i<100;i++)
-{
-    if(KiemTraDoiXung(toString(arr[i])) == true)
-    {
-        count ++; 
+count = 0;
+console.log('Các số đối xứng trong mảng: '); 
+for (let i = 0; i < 100; i++) {
+    if (KiemTraDoiXung(toString(arr[i])) == true) {
+        count++;
+        console.log(arr[i]); 
     }
 }
-console.log('Đếm phần tử là số đối xứng trong mảng'); 
-console.log(count); 
+console.log(' => Mảng có %i số đối xứng', count); 
 
-console.log(KiemTraDoiXung('1232')); 
+
 
 
 function OutputArray(arr) {
     console.log(arr.join(', '));
 }
+
+function isPrime(value)
+{
+    if (value < 2)
+    {
+        return false; 
+    }
+    else if(value ==2)
+    {
+        return true; 
+    }
+    else if(value %2 ==0 )
+    {
+        return false; 
+    }
+    else 
+    {
+        for(let i=3; i<value; i++)
+        {
+            if(value%i ==0)
+            {
+                return false; 
+            }
+        }
+        return true; 
+    }
+}
+
 function isPerfectNumber(n) {
     if (n <= 0) {
         return false;
@@ -90,8 +125,8 @@ function isPerfectNumber(n) {
 
 }
 
-function isFibonacci(n) { 
-    if (n <= 0) {
+function isFibonacci(n) {
+    if (n <= 2) {
         return false;
     }
     var a = 1;
@@ -99,7 +134,7 @@ function isFibonacci(n) {
     var k = 0;
 
     while (k < n) {
-        k = k + a + b;
+        k = a + b;
         a = b;
         b = k;
     }
@@ -112,12 +147,10 @@ function isFibonacci(n) {
 
 function KiemTraDoiXung(n) // kiểm tra chuỗi đối xứng 
 {
-    for (let i=0; i< n.length/2; i++)
-    {
-        if (n[i] != n[n.length - 1 -i])
-        {
-            return false; 
+    for (let i = 0; i < n.length / 2; i++) {
+        if (n[i] != n[n.length - 1 - i]) {
+            return false;
         }
     }
-    return true; 
+    return true;
 }
